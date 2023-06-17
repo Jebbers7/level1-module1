@@ -53,15 +53,18 @@ if __name__ == '__main__':
         turtlelist[i].goto(-400,200-(i*60))
     # TODO 7) Move each turtle forward a random distance between 1 and 20
     for i in turtlelist:
-        turtlelist[i].forward(random(1,20))
+        i.forward(random.randint(1,20))
     # TODO 8) Create a loop to keep moving each turtle until a turtle
     #  crosses the finish line
     #  *HINT* click on the window to print the corresponding x, y location
-    while turtlelist[i].xcor() < 348:
+    turtleHasWon = False
+    while turtleHasWon == False:
         for i in turtlelist:
-            turtlelist[i].forward(random(1, 20))
-            if turtlelist[i].xcor() >= 348:
-                print('Turtle' + i + 'Won the race!')
+            i.forward(random.randint(1, 20))
+            if i.xcor() >= 348:
+                print('Turtle ' + str(turtlelist.index(i)) + ' Won the race!')
+                turtleHasWon = True
+                break
     # TODO 9) When a turtle crosses the finish line, stop the race and
     #  indicate which turtle won the race.
     # EXTRA: Create different colors for each turtle and code a special
